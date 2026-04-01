@@ -1,0 +1,59 @@
+<!-- npx tailwindcss -i src/main/resources/static/css/input.css -o src/main/resources/static/css/output.css --watch -->
+
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:fragment="parent(title,style,header,content,footer,script)"
+>
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Important for responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title th:replace="${title}">Document</title>
+
+    <!-- Tailwind Output -->
+    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+
+    <!-- Flowbite -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" data-th-replace="${style}" />
+  </head>
+
+  <body
+    class="min-h-screen flex flex-col bg-gradient-to-br from-indigo-500 via-purple-600 to-purple-700"
+  >
+    <!-- Page Wrapper -->
+    <div class="flex flex-col flex-grow w-full">
+
+      <!-- Header -->
+      <header class="w-full">
+        <div th:replace="${header}"></div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-grow w-full px-4 sm:px-6 lg:px-8">
+        <div th:replace="${content}"></div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="w-full">
+        <div th:replace="${footer}"></div>
+      </footer>
+
+    </div>
+
+    <!-- Flowbite JS -->
+    <script src="https://unpkg.com/flowbite@latest/dist/flowbite.js"></script>
+
+    <!-- Page-specific scripts -->
+    <script data-th-replace="${script}"></script>
+  </body>
+</html>
