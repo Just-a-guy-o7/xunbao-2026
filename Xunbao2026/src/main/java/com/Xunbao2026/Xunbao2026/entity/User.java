@@ -24,6 +24,21 @@ public class User {
     @Column(nullable = false, unique = true, length = 255)
     private String username;
 
+    @Column(nullable = false, unique = true, length = 255)
+    private String email;
+
+    @Column(nullable = false, unique = true, length = 50)
+    private String rollNumber;
+
+    @Column(nullable = false, length = 255)
+    private String college;
+
+    @Column(nullable = false, length = 255)
+    private String branch;
+
+    @Column(nullable = false, length = 20)
+    private String mobileNumber;
+
     @Column(nullable = false, columnDefinition = "TEXT")
     private String password;
 
